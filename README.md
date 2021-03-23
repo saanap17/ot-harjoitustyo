@@ -8,4 +8,4 @@
 [komentorivi.txt](https://github.com/saanap17/ot-harjoitustyo/blob/master/laskarit/viikko1/komentorivi.txt)
 
 ### Viikko 2
-[coverage report] (https://github.com/saanap17/ot-harjoitustyo/blob/master/laskarit/viikko2/coveragereport.png)
+[coverage report](https://github.com/saanap17/ot-harjoitustyo/blob/master/laskarit/viikko2/coveragereport.png)
