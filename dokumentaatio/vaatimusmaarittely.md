@@ -2,20 +2,20 @@
 
 [Alustava versio]
 
-# Sovelluksen tarkoitus
+## Sovelluksen tarkoitus
 
 Sovelluksen on tarkoitus toimia yksinkertaisena välineenä kieltenopiskelijoille. Käyttäjät voivat kirjautua sisään omilla tunnuksillaan ja sovelluksessa tehdä itselleen sanalistoja ja harjoitella niiden parissa. 
 
 
-# Käyttäjät
+## Käyttäjät
 
 Kaikilla käyttäjillä on yhtäläiset oikeudet sovelluksen käyttöön, eli sovelluksella on vain *normaalikäyttäjiä*. Käyttäjillä on lukuoikeus vain omiin listoihinsa. Mikäli myöhemmin aikaa jää, saatetaan sovellukseen lisätä myös *admin* jolla on oikeudet luoda valmiita listoja (jolloin normaalikäyttäjien ei näitä tarvitsisi itse luoda, vaan esim. opettajan). 
 
-# Käyttöliittymäluonnos
+## Käyttöliittymäluonnos
 
 Sovelluksessa on oletuksena vain tekstiliittymä. Sovellukseen saatetaan lisätä graafinen käyttöliittymä, mikäli myöhemmin jää tälle aikaa. Käyttäjälle osoitetaan tekstillä kysymyksiä, joihin syötteen antamalla ohjelman ajo etenee. Käyttäjälle tarjotaan ohjelman jokaisessa vaiheessa ohjeet siitä, millä komennoilla suorituksessa edetään (esim. 'Q = Quit').
 
-# Perusversion tarjoama toiminnallisuus
+## Perusversion tarjoama toiminnallisuus
 
 Kun sovellus käynnistetään, kysyy se onko käyttäjällä olemassaolevia *tunnuksia*. Mikäli ei, ohjataan käyttäjä luomaan itselleen uniikki käyttäjätunnus sekä tälle salasana. Muussa tapauksessa käyttäjä ohjataan kirjautumaan tunnuksillaan. Ohjelma varoittaa mm. jos käyttäjätunnus on jo olemassa tai jos salasana on kirjautuessa väärin.
 
@@ -32,7 +32,7 @@ Sanalistoihin voi lisätä sana-käännös -pareja haluamallaan kielellä. Lista
 Halutessaan harjoitella käyttäjä valitsee yhden luomistaan sanalistoista, jonka jälkeen sovellus syöttää listasta sanoja käyttäjälle yksi kerrallaan. Käyttäjän odotetaan kirjoittavan sovellukselle sanan oikea käännös. Mikäli vastaus on oikein, siirtyy sovellus seuraavaan sanaan. Mikäli käyttäjä vastaa väärin kahdesti, antaa sovellus vinkkinä sanan käännöksen ensimmäisen kirjaimen. Kun sanalista on käyty loppuun, saa käyttäjä onnittelut. Käyttäjä voi keskeyttää suorituksen milloin vain halutessaan. 
 	
 
-# Jatkokehitysideoita
+## Jatkokehitysideoita
 
 Alla mahdollisia ideoita ja lisäyksiä, joita ohjelmaan voisi seuraavien viikkojen aikana tehdä, kun perustoiminnallisuus on saavutettu.
 - Graafinen käyttöliittymä

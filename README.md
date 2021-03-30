@@ -2,7 +2,7 @@
 
 ## Dokumentaatio
 
-[Tuntikirjanpito](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)
+[Tuntikirjanpito](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)  
 [Vaatimusmäärittely](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
 
 ## Tehtävät
