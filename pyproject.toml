@@ -5,7 +5,7 @@ description = ""
 authors = ["Saana Pyyhtiä <saana.pyyhtia@helsinki.fi>"]
 
 [tool.poetry.dependencies]
-python = "^3.9"
+python = "^3.6"
 invoke = "^1.5.0"
 
 [tool.poetry.dev-dependencies]
