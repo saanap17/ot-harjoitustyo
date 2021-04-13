@@ -1,0 +1,6 @@
+.coverage
+.pytest_cache
+htmlcov
+src/__pycache__
+src/.pytest_cache
+src/test/__pycache__
