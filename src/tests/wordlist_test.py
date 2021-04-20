@@ -30,6 +30,12 @@ class TestWordlist(unittest.TestCase):
         result = len(self.wordlist.read_list())
         self.assertEqual(result, 1)
 
+    def test_reading_list_by_user(self):
+        self.wordlist.add_word(self.new_word)
+        second_word = Word('User2', 'Word2', 'Transl2')
+        self.wordlist.add_word(second_word)
+        self.assertEqual(len(self.wordlist.read_list_user('TestUser')), 1)
+
     def test_adding_words(self):
         result = False
         self.wordlist.add_word(self.new_word)

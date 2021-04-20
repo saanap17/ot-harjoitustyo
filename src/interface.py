@@ -93,7 +93,7 @@ class Interface:
             elif cmd == 'm':
                 self.manage(user)
             elif cmd == 'p':
-                print('Playing has not been implemented yet.\n')
+                self.play(user)
             else:
                 print(
                     f"I couldn't understand your command, please try again.\n({self.help_msg})\n")
@@ -113,7 +113,7 @@ class Interface:
             elif cmd == 'help':
                 print(self.commands(3))
             elif cmd == 'a':
-                word = input('\n     Word: ').lower()
+                word = input('     Word: ').lower()
                 translation = input('     Translation: ').lower()
                 self.wordlist.add_word(Word(user, word, translation))
                 print('')
@@ -127,4 +127,22 @@ class Interface:
                     f"I couldn't understand your command, please try again.\n({self.help_msg})\n")
 
     def play(self, user):
-        return
+        print(
+            f'{self.line}\n     WORD GAME\n\nIf you wish to stop playing, type "stop".\n')
+        words = self.wordlist.read_list_user(user)
+        for w in words:
+            counter = 0
+            while True:
+                answer = input(f'What is the translation for {w.word}? ')
+                if answer == w.translation:
+                    print('Correct!')
+                    break
+                elif answer == 'stop':
+                    print(self.line)
+                    return
+                elif counter == 2:
+                    hint = ' _'*(len(w.translation)-1)
+                    print(f'Hint: {w.translation[0]}{hint}')
+                else:
+                    counter += 1
+                    print('Wrong!')

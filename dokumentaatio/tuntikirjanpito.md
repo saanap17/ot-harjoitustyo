@@ -15,4 +15,5 @@
 | | 3 | Sanojen lisääminen listaan onnistuu |
 |20.4.| 2 | Ohjelman rakenteiden muuttelua |
 | | 2 | Sanojen poistaminen onnistuu |
-| yht      | 27        |            |  
+| | 1 | Sanapelin alustava versio |
+| yht      | 28        |            |  

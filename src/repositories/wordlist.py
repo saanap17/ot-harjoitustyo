@@ -15,6 +15,13 @@ class Wordlist:
             writer = csv.writer(new_file, delimiter=',')
             writer.writerow(['User', 'Word', 'Translation'])
 
+    def read_list_user(self, user):
+        words = self.read_list()
+        for i in range(len(words)-1):
+            if words[i].user != user:
+                words.pop(i)
+        return words
+
     def read_list(self):
         words = []
         with open(self.address) as file:
