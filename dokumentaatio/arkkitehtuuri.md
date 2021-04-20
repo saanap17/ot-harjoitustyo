@@ -10,7 +10,7 @@ Sovelluksessa on toistaiseksi vain tekstikäyttöliittymä.
 
 Sovelluksessa on käyttöliittymä [Interface](https://github.com/saanap17/ot-harjoitustyo/blob/master/src/interface.py), joka vastaa luonnollisesti ohjelman suorituksen näyttämisestä käyttäjälle. Tämän lisäksi meillä on kaksi pakettia, *repositories* ja *entities*.  
 
-(https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/package.png)  
+[Ohjelman pakkausrakenne](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/package.png)  
 
 'Entities' sisältää oliot *Word* ja *User*, jotka kuvaavat yksittäistä sanaa (käännöksineen) sekä käyttäjää. Kansiossa 'repositories' on kaikki todellinen sovelluslogiikka. *Users* vastaa käyttäjätietokannan ylläpidosta (käyttäjien poisto, lisääminen yms.), ja *Wordlist* vastaavasti huolehtii sanojen ylläpidosta, sanalistojen hakemisesta tiedostosta ynnä muusta.
 
