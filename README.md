@@ -6,6 +6,7 @@ Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännök
 
 [Tuntikirjanpito](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)  
 [Vaatimusmäärittely](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Arkkitehtuuri](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md) 
 
 ## Asennus
 
@@ -17,7 +18,7 @@ Asenna ensin riippuvuudet komennolla:
 
 ### Ohjelman suorittaminen
 
-Ohjelman suoritusta on testattu vain `Python 3.9.0` -versiolla. 
+Ohjelman suoritusta on testattu vain `Python 3.6.0` -versiolla. 
 Ohjelman saa suoritettua komennolla:
 
 	poetry run invoke start
@@ -36,4 +37,8 @@ Testikattavuusraportin saa HTML-muodossa komennolla:
 
 	poetry run invoke coverage-report
 
-Linkki raporttiin löytyy komennon suorituksen jälkeen juurikansion *htmlcov*-kansiosta.
+Linkki raporttiin löytyy komennon suorituksen jälkeen juurikansion *htmlcov*-kansiosta.  
+
+Koodin laatutarkastuksen tekeminen tapahtuu komennolla:
+
+	poetry run invoke lint

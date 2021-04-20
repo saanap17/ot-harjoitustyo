@@ -1,34 +1,33 @@
 import unittest
+import pytest
 import os
-from users import Users
-from interface import Interface
+import sqlite3
+from repositories.users import Users
+from entities.user import User
+
 
 class TestUsers(unittest.TestCase):
     def setUp(self):
-        self.users = Users('test_users.txt')
-        self.username = 'Username'
-        self.password = 'Password'
+        self.test_user = User('Username', 'Password')
+
+    @pytest.fixture(autouse=True)
+    def before(self):
+        self.users = Users(sqlite3.connect('test_users.db'))
+        self.users.create_db()
+        yield
+        self.users.con.close()
+        os.remove('test_users.db')
 
     def test_adding_users(self):
-        self.assertEqual(self.users.add_user(self.username,self.password),True)
-        os.remove('test_users.txt')
+        self.assertEqual(self.users.add_user_sql(self.test_user), True)
 
     def test_no_duplicates(self):
-        self.users.add_user(self.username,self.password)
-        self.assertEqual(self.users.add_user(self.username,self.password),False)
-        os.remove('test_users.txt')
-
-    def test_checking_users(self):
-        self.users.add_user(self.username,self.password)
-        self.assertEqual(self.users.check_user(self.username),True)
-        os.remove('test_users.txt')
+        self.users.add_user_sql(self.test_user)
+        self.assertEqual(self.users.add_user_sql(self.test_user), False)
 
     def test_allow_login(self):
-        self.users.add_user(self.username,self.password)
-        self.users.check_login(self.username,self.password)
-        self.assertEqual(self.users.check_user(self.username),True)
-        os.remove('test_users.txt')
-
-    def test_dont_allow_login(self):
-        self.assertEqual(self.users.check_user(self.username),False)
-    
+        self.users.add_user_sql(self.test_user)
+        self.assertEqual(self.users.check_login_sql(
+            self.test_user.username, self.test_user.password), True)
+        self.assertEqual(self.users.check_login_sql(
+            'Username1', 'Username2'), False)

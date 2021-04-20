@@ -3,4 +3,7 @@
 htmlcov
 src/__pycache__
 src/.pytest_cache
-src/test/__pycache__
+src/tests/__pycache__
+src.mv.db
+src.trace.db
+laskarit
