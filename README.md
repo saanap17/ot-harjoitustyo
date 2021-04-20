@@ -5,7 +5,7 @@ Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännök
 ## Dokumentaatio
 
 [Tuntikirjanpito](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)  
-[Vaatimusmäärittely](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Vaatimusmäärittely](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
 [Arkkitehtuuri](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md) 
 
 ## Asennus
