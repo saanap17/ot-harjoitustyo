@@ -17,19 +17,24 @@ Sovelluksessa on oletuksena vain tekstiliittymä. Sovellukseen saatetaan lisät�
 
 ## Perusversion tarjoama toiminnallisuus
 
-Kun sovellus käynnistetään, kysyy se onko käyttäjällä olemassaolevia *tunnuksia*. Mikäli ei, ohjataan käyttäjä luomaan itselleen uniikki käyttäjätunnus sekä tälle salasana. Muussa tapauksessa käyttäjä ohjataan kirjautumaan tunnuksillaan. Ohjelma varoittaa mm. jos käyttäjätunnus on jo olemassa tai jos salasana on kirjautuessa väärin.
+Kun sovellus käynnistetään, annetaan käyttäjälle vaihtoehdoksi joko kirjautua sisään tai luoda uusi tunnus. Luodessaan tunnusta käyttäjä antaa itselleen uniikin käyttäjätunnuksen sekä tälle salasanan. Ohjelma varoittaa mm. jos käyttäjätunnus on jo olemassa ja jos salasana/käyttäjätunnus on kirjautuessa väärin.
+
+- Käyttäjäkeskeiset toiminnot
+	- Käyttäjän luominen (Tehty)
+	- Käyttäjän sisäänkirjautuminen (Tehty)
+	- Käyttäjän poistaminen
 
 Kun käyttäjä on kirjautunut sisään, tervehditään käyttäjää ja sovellus antaa listan vaihtoehdoista:
 - Sanalistojen hallinta
 	- Luo uusi sanalista
-	- Lisää sanoja vanhaan listaan
-	- Poista sanoja vanhasta listasta
+	- Lisää sanoja vanhaan listaan (Tehty)
+	- Poista sanoja vanhasta listasta (Tehty)
 	- Muokkaa sanaa vanhalla listalla
 - Harjoittelutila
-	- Valitse sanalista, jota haluat harjoitella
+	- Valitse sanalista, jota haluat harjoitella (Tehty osittain)
 	
 Sanalistoihin voi lisätä sana-käännös -pareja haluamallaan kielellä. Listan kieli valitaan listaa luodessa.  
-Halutessaan harjoitella käyttäjä valitsee yhden luomistaan sanalistoista, jonka jälkeen sovellus syöttää listasta sanoja käyttäjälle yksi kerrallaan. Käyttäjän odotetaan kirjoittavan sovellukselle sanan oikea käännös. Mikäli vastaus on oikein, siirtyy sovellus seuraavaan sanaan. Mikäli käyttäjä vastaa väärin kahdesti, antaa sovellus vinkkinä sanan käännöksen ensimmäisen kirjaimen. Kun sanalista on käyty loppuun, saa käyttäjä onnittelut. Käyttäjä voi keskeyttää suorituksen milloin vain halutessaan. 
+Halutessaan harjoitella käyttäjä valitsee yhden luomistaan sanalistoista, jonka jälkeen sovellus syöttää listasta sanoja käyttäjälle yksi kerrallaan. Käyttäjän odotetaan kirjoittavan sovellukselle sanan oikea käännös. Mikäli vastaus on oikein, siirtyy sovellus seuraavaan sanaan. Mikäli käyttäjä vastaa väärin kolmesti, antaa sovellus vinkkinä sanan käännöksen ensimmäisen kirjaimen. Kun sanalista on käyty loppuun, saa käyttäjä onnittelut. Käyttäjä voi keskeyttää suorituksen milloin vain halutessaan. 
 	
 
 ## Jatkokehitysideoita
@@ -46,5 +51,4 @@ Alla mahdollisia ideoita ja lisäyksiä, joita ohjelmaan voisi seuraavien viikko
     - Aina kun sanan saa oikein, saa pisteitä (*experience points*)
     - Pisteillä käyttäjän taso (*level*) kasvaa
     - Ei oikeaa toiminnallisuutta, vain porkkana käyttäjälle
-- Käyttäjän poisto
 - Muuta, mitä?
