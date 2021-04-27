@@ -1,11 +1,9 @@
 from interface import Interface
-from repositories.users import Users
-from repositories.wordlist import Wordlist
+from services.wordapp_service import WordAppService
 import sqlite3
 
 if __name__ == "__main__":
-    users = Users(sqlite3.connect('data/users.db'))
-    users.create_db()
-    wordlist = Wordlist('data/wordlist.csv')
-    interface = Interface(users, wordlist)
+    wordapp_service = WordAppService(
+        (sqlite3.connect('data/users.db')), 'data/wordlist.csv')
+    interface = Interface(wordapp_service)
     interface.start()

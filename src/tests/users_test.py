@@ -31,3 +31,9 @@ class TestUsers(unittest.TestCase):
             self.test_user.username, self.test_user.password), True)
         self.assertEqual(self.users.check_login_sql(
             'Username1', 'Username2'), False)
+
+    def test_deleting_users(self):
+        self.users.add_user_sql(self.test_user)
+        self.users.delete_user(self.test_user.username)
+        self.assertEqual(self.users.check_login_sql(
+            'Username1', 'Username2'), False)

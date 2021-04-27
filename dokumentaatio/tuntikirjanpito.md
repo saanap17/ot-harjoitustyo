@@ -16,4 +16,8 @@
 |20.4.| 2 | Ohjelman rakenteiden muuttelua |
 | | 2 | Sanojen poistaminen onnistuu |
 | | 1 | Sanapelin alustava versio |
-| yht      | 28        |            |  
+|26.4. | 1 | Käyttäjän poisto onnistuu |
+| | 2 | Sanoja voi lisätä nyt kielittäin ja itse pelissä voi valita kielen |
+|27.4.| 3 | Ohjelman rakenteen muuttelua, siistimistä yms. ainakin toivottavasti selkeämmäksi |
+| | 1 | Sanojen editointi onnistuu |
+| yht      | 35        |            |  

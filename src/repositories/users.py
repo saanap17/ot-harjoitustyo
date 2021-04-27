@@ -26,3 +26,8 @@ class Users:
         if psw.fetchone() is None:
             return False
         return True
+
+    def delete_user(self, username):
+        self.cur.execute(
+            '''DELETE FROM Users WHERE username=(?)''', (username, ))
+        self.con.commit()
