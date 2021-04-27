@@ -140,9 +140,10 @@ class Interface:
                 new_word = input('\n     New word: ').lower()
                 new_transl = input('     New translation: ').lower()
                 new_lang = input('     New language: ').lower()
-                self.wordapp_service.edit_word(
-                    user, old_word, old_lang, new_word, new_transl, new_lang)
-                print('\nWord successfully edited!\n')
+                if not self.wordapp_service.edit_word(user, old_word, old_lang, new_word, new_transl, new_lang):
+                    print('\nWord could not be edited, please try again.\n')
+                else:
+                    print('\nWord successfully edited!\n')
             else:
                 print(
                     f"I couldn't understand your command, please try again.\n({self.help_msg})\n")

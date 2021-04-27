@@ -3,6 +3,7 @@ from entities.word import Word
 from repositories.users import Users
 from repositories.wordlist import Wordlist
 
+
 class WordAppService:
 
     def __init__(self, users_address, words_address):
@@ -53,5 +54,8 @@ class WordAppService:
         return True
 
     def edit_word(self, user, old_word, old_lang, new_word, transl, new_lang):
+        if not old_word or not new_word or not transl or not new_lang:
+            return False
         self.delete_word(user, old_word, old_lang)
         self.add_word(user, new_word, transl, new_lang)
+        return True
