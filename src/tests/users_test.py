@@ -37,3 +37,11 @@ class TestUsers(unittest.TestCase):
         self.users.delete_user(self.test_user.username)
         self.assertEqual(self.users.check_login_sql(
             'Username1', 'Username2'), False)
+
+    def test_updating_exp(self):
+        self.users.add_user_sql(self.test_user)
+        user = self.users.get_user(self.test_user.username)
+        self.assertEqual(user[2], 0)
+        self.users.update_exp(self.test_user.username, 10)
+        user = self.users.get_user(self.test_user.username)
+        self.assertEqual(user[2], 10)

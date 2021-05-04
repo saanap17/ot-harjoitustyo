@@ -73,13 +73,8 @@ class TestWordAppService(unittest.TestCase):
         self.assertEqual(self.service.get_languages('Admin'), False)
         self.service.add_word(
             self.word[0], self.word[1], self.word[2], self.word[3])
-        self.assertEqual(self.service.get_languages('Admin'), True)
-
-    def test_get_words(self):
-        self.assertEqual(self.service.get_words('Admin', 'Lang'), False)
-        self.service.add_word(
-            self.word[0], self.word[1], self.word[2], self.word[3])
-        self.assertEqual(self.service.get_words('Admin', 'Lang'), True)
+        languages = self.service.get_languages('Admin')
+        self.assertEqual(languages[1], 'Lang')
 
     def test_edit_word(self):
         self.service.add_word(
@@ -88,3 +83,20 @@ class TestWordAppService(unittest.TestCase):
             self.word[0], self.word[1], self.word[3], 'NewWord', 'NewTransl', 'NewLang')
         self.assertEqual(self.service.read_list('Admin', 'Lang'), False)
         self.assertEqual(len(self.service.read_list('Admin', 'NewLang')), 1)
+
+    def test_getting_exp(self):
+        self.service.add_user(self.user, self.pw)
+        self.assertEqual(self.service.get_experience(self.user), 0)
+
+    def test_adding_exp(self):
+        self.service.add_user(self.user, self.pw)
+        self.service.update_exp(self.user, 10)
+        self.assertEqual(self.service.get_experience(self.user), 10)
+        self.service.update_exp(self.user, 10)
+        self.assertEqual(self.service.get_experience(self.user), 20)
+
+    def test_getting_level(self):
+        self.service.add_user(self.user, self.pw)
+        self.assertEqual(self.service.get_level(self.user)[0], 'Beginner')
+        self.service.update_exp(self.user, 50)
+        self.assertEqual(self.service.get_level(self.user)[0], 'Novice')
