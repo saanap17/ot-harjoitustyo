@@ -6,11 +6,13 @@ Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännök
 
 - [Tuntikirjanpito](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/tuntikirjanpito.md)  
 - [Vaatimusmäärittely](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
-- [Arkkitehtuuri](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md) 
+- [Arkkitehtuuri](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)  
+- [Käyttöohje](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)  
 
 ## Releaset
 
-[Viikko 5](https://github.com/saanap17/ot-harjoitustyo/releases/tag/viikko5)   
+[Viikko 5](https://github.com/saanap17/ot-harjoitustyo/releases/tag/viikko5)  
+[Viikko 6](https://github.com/saanap17/ot-harjoitustyo/releases/tag/viikko6)  
 
 ## Asennus
 

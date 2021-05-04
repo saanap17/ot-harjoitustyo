@@ -4,11 +4,19 @@ from entities.word import Word
 
 
 class Wordlist:
+    """Class that manages the CSV file containing all words."""
+
     def __init__(self, address):
+        """Constructor, creates a new wordlist repository.
+        Attributes:
+            address: address for the csv-file"""
+
         self.address = address
         self.create_list()
 
     def create_list(self):
+        """Creates the CSV file if it doesn't already exists."""
+
         if os.path.exists(self.address):
             return
         with open(self.address, 'w', newline='') as new_file:
@@ -16,6 +24,10 @@ class Wordlist:
             writer.writerow(['User', 'Word', 'Translation', 'Language'])
 
     def get_languages(self, user):
+        """Finds all languages available for a specific user.
+        Returns:
+            added: list of language strings"""
+
         words = self.read_list(user)
         added = []
         for word in reversed(words):
@@ -26,6 +38,13 @@ class Wordlist:
         return added
 
     def read_list(self, username=False, language=False):
+        """Reads the CSV file and returns found words.
+        Args:
+            username: name of the user, not mandatory.
+            language: language of the words the method returns, not mandatory.
+        Returns:
+            words: list of Word objects"""
+
         words = []
         with open(self.address) as file:
             for row in file:
@@ -46,6 +65,10 @@ class Wordlist:
         return words
 
     def add_word(self, word):
+        """Writes one new word to the CSV file.
+        Args:
+            word: Word object."""
+
         words = self.read_list()
         for entry in words:
             if (
@@ -60,6 +83,12 @@ class Wordlist:
                 [word.user, word.word, word.translation, word.language])
 
     def delete_word(self, delete_user, delete_word, delete_language):
+        """Deletes one word from the CSV file.
+        Args:
+            delete_user: user whose word is being deleted.
+            delete_word: word that is being deleted.
+            delete_language: specifies in which language the word is in case of duplicates."""
+
         words = self.read_list()
         with open(self.address, 'w') as file:
             for word in words:
@@ -72,6 +101,10 @@ class Wordlist:
                     f'{word.user},{word.word},{word.translation},{word.language}\n')
 
     def delete_words_user(self, user):
+        """Deletes ALL words from one user.
+        Args:
+            user: name of the user."""
+
         words = self.read_list()
         with open(self.address, 'w') as file:
             for word in words:

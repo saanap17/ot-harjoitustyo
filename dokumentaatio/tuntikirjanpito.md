@@ -20,4 +20,8 @@
 | | 2 | Sanoja voi lisätä nyt kielittäin ja itse pelissä voi valita kielen |
 |27.4.| 3 | Ohjelman rakenteen muuttelua, siistimistä yms. ainakin toivottavasti selkeämmäksi |
 | | 1 | Sanojen editointi onnistuu |
-| yht      | 35        |            |  
+|3.5. | 2 | Koodia uudelleenjärjestelty siellä sun täällä |
+|4.5. | 2 | Käyttäjien profiilit ja kokemuspisteet lisätty |
+|     | 1 | Docstring-dokumentaatio suurimmilta osin tehty |
+|     | 3 | Käyttöliittymän stressiä ulkoistettu apuluokalle, siistitään myöhemmin |
+| yht      | 43        |            |  

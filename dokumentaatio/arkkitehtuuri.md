@@ -6,13 +6,19 @@
 
 Sovelluksessa on toistaiseksi vain tekstikäyttöliittymä.
 
+## Rakenne
+
+[Kuva tulossa.]  
+
+Sovellus on rakennettu kolmitasoisen kerrosarkkitehtuurin mukaisesti, eli se on jaoteltu kolmeen luokkaan: *entities*, *repositories* ja *services*. Pakkaus *entities* vastaa sovelluksessa käytettävien olioiden rakenteesta, pakkauksen *repositories* luokat vastaavat tietorakenteiden ylläpidosta ja hauista, kun taas *services* toimii repositorioiden ja käyttöliittymän välissä. Käyttöliittymän toiminta on näistä erillinen. 
+
 ## Sovelluslogiikka
 
 Sovelluksessa on käyttöliittymä [Interface](https://github.com/saanap17/ot-harjoitustyo/blob/master/src/interface.py), joka vastaa luonnollisesti ohjelman suorituksen näyttämisestä käyttäjälle. Tämän lisäksi meillä on kaksi pakettia, *repositories* ja *entities*, sekä palveluluokka *wordapp_service*.
 
 ![](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/package.png)  
 
-(Kuva pitää päivittää) 'Entities' sisältää oliot *Word* ja *User*, jotka kuvaavat yksittäistä sanaa (käännöksineen) sekä käyttäjää. Kansiossa 'repositories' on kaikki todellinen sovelluslogiikka. *Users* vastaa käyttäjätietokannan ylläpidosta (käyttäjien poisto, lisääminen yms.), ja *Wordlist* vastaavasti huolehtii sanojen ylläpidosta, sanalistojen hakemisesta tiedostosta ynnä muusta. Käyttöliittymän ja repositorien välillä on luokka *WordAppService*, joka toimii välikätenä eri toimintojen suorituksessa.
+(Kuva pitää päivittää) 'Entities' sisältää oliot *Word* ja *User*, jotka kuvaavat yksittäistä sanaa (käännöksineen) sekä käyttäjää. Kansiossa 'repositories' on kaikki todellinen sovelluslogiikka. *Users* vastaa käyttäjätietokannan ylläpidosta (käyttäjien poisto, lisääminen yms.), ja *Wordlist* vastaavasti huolehtii sanojen ylläpidosta, sanalistojen hakemisesta tiedostosta ynnä muusta. Käyttöliittymän ja repositorien välillä on luokka *WordAppService*, joka toimii välikätenä eri toimintojen suorituksessa. Käyttöliittymä on myös jaettu kahteen osaan, *Interface* ja *Commands*, joista *Commands* vastaa laajaosaisten komentojen suorituksesta ja kommunikoi palveluluokan kanssa.
 
 ## Tietojen pysyväistallennus
 

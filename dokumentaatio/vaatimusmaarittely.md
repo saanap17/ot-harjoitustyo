@@ -23,6 +23,7 @@ Kun sovellus käynnistetään, annetaan käyttäjälle vaihtoehdoksi joko kirjau
 	- Käyttäjän luominen (Tehty)
 	- Käyttäjän sisäänkirjautuminen (Tehty)
 	- Käyttäjän poistaminen (Tehty)
+	- Käyttäjän profiilin tarkastelu (Tehty)
 
 Kun käyttäjä on kirjautunut sisään, tervehditään käyttäjää ja sovellus antaa listan vaihtoehdoista:
 - Sanalistojen hallinta
@@ -35,6 +36,7 @@ Kun käyttäjä on kirjautunut sisään, tervehditään käyttäjää ja sovellu
 	
 Sanalistoihin voi lisätä sana-käännös -pareja haluamallaan kielellä. Luodessaan sanaa käyttäjä valitsee, minkä kielen listaan sana lisätään. Käyttäjä voi myös vapaasti editoida omia sanojaan sekä poistaa niitä.  
 Halutessaan harjoitella käyttäjä valitsee haluamansa kielen, jonka jälkeen sovellus syöttää listasta sanoja käyttäjälle yksi kerrallaan. Käyttäjän odotetaan kirjoittavan sovellukselle sanan oikea käännös. Mikäli vastaus on oikein, siirtyy sovellus seuraavaan sanaan. Mikäli käyttäjä vastaa väärin kahdesti, antaa sovellus vinkkinä sanan käännöksen ensimmäisen kirjaimen ja näyttää sanan pituuden. Mikäli käyttäjä taas vastaa väärin neljästi, antaa ohjelma oikean vastauksen ja siirtyy seuraavaan sanaan. Kun sanalista on käyty loppuun, saa käyttäjä onnittelut ja tiedon siitä, montako sanaa meni oikein. Käyttäjä voi keskeyttää suorituksen milloin vain halutessaan. 
+Pelin jälkeen käyttäjä saa jokaisesta oikeasta vastauksesta yhden kokemuspisteen (*experience points*). Kun käyttäjällä on tarpeeksi pisteitä, nousee käyttäjän taso (*level*).
 	
 
 ## Jatkokehitysideoita
@@ -42,13 +44,10 @@ Halutessaan harjoitella käyttäjä valitsee haluamansa kielen, jonka jälkeen s
 Alla mahdollisia ideoita ja lisäyksiä, joita ohjelmaan voisi seuraavien viikkojen aikana tehdä, kun perustoiminnallisuus on saavutettu.
 - Graafinen käyttöliittymä
 - *Admin*-käyttäjärooli
+	- esim. opettajalle
 - Sanoille "prioriteetti"
    - ts. mitä sanoja käyttäjä haluaisi ensisijaisesti listasta harjoitella
 - Sanojen dynaaminen lisääminen nk. sanapankkiin
     - Ohjelma voi ehdottaa uusia sanoja listoille
     - Käyttäjä voi listan luomisen sijaan käyttää sanapankkia
-- Pisteytysjärjestelmä
-    - Aina kun sanan saa oikein, saa pisteitä (*experience points*)
-    - Pisteillä käyttäjän taso (*level*) kasvaa
-    - Ei oikeaa toiminnallisuutta, vain porkkana käyttäjälle
 - Muuta, mitä?

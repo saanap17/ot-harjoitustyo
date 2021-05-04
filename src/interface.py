@@ -2,6 +2,7 @@ import getpass
 import sys
 import sqlite3
 from services.wordapp_service import WordAppService
+from commands import Commands
 
 
 class Interface:
@@ -10,13 +11,14 @@ class Interface:
         self.line = '-'*40 + '\n'
         self.help_msg = 'Type "help" to see all commands.'
         self.to_do = 'What would you like to do? '
+        self.command_service = Commands(wordapp_service)
 
     def commands(self, code):
         str = ''
         if code == 1:
             return 'COMMANDS:\n     L = Login With an Existing User\n     C = Create a User\n     Q = Quit\n'
         elif code == 2:
-            return '     L = Logout\n     M = Manage Word Lists\n     P = Play\n     D = Delete User\n'
+            return '     M = Manage Word Lists\n     P = Play\n     R = Profile Page\n     D = Delete User\n     L = Logout\n'
         elif code == 3:
             str = '     A = Add Words\n     D = Delete Words\n     E = Edit Words\n'
         return str + '     B = Return to the Previous Page\n'
@@ -86,11 +88,10 @@ class Interface:
                 self.manage(user)
             elif cmd == 'p':
                 self.play_setup(user)
+            elif cmd == 'r':
+                self.user_profile(user)
             elif cmd == 'd':
-                conf = input(
-                    'Are you sure you want to delete this user (Y/N)? ').lower()
-                if conf == 'y':
-                    self.wordapp_service.delete_user(user)
+                if self.command_service.delete_user(user):
                     print(f'User has been deleted!\n{self.line}')
                     return
                 else:
@@ -105,6 +106,7 @@ class Interface:
         print(f'     MANAGE WORD LISTS\n\n{self.commands(3)}')
 
         while True:
+            langs = self.wordapp_service.get_languages(user)
             cmd = input(f'{self.to_do}').lower()
             print('')
 
@@ -114,36 +116,16 @@ class Interface:
             elif cmd == 'help':
                 print(self.commands(3))
             elif cmd == 'a':
-                language = input('     Choose language: ').lower()
-                word = input('     Word: ').lower()
-                translation = input('     Translation: ').lower()
-                self.wordapp_service.add_word(
-                    user, word, translation, language)
+                self.command_service.add_word(user, langs)
                 print(self.line)
             elif cmd == 'd':
-                self.wordapp_service.get_languages(user)
-                language = input(
-                    '\nWhich language list would you like to access? ').lower()
-                self.wordapp_service.get_words(user, language)
-                word = input('\nWhich word would you like to delete? ').lower()
-                self.wordapp_service.delete_word(user, word, language)
+                self.command_service.delete_word(user, langs)
                 print('     Word deleted!\n')
             elif cmd == 'e':
-                self.wordapp_service.get_languages(user)
-                old_lang = input(
-                    '\nWhich language list would you like to access? ').lower()
-                if not self.wordapp_service.get_words(user, old_lang):
-                    print("You do not have any words in that language. :(\n")
-                    continue
-                old_word = input(
-                    '\nWhich word would you like to edit? ').lower()
-                new_word = input('\n     New word: ').lower()
-                new_transl = input('     New translation: ').lower()
-                new_lang = input('     New language: ').lower()
-                if not self.wordapp_service.edit_word(user, old_word, old_lang, new_word, new_transl, new_lang):
-                    print('\nWord could not be edited, please try again.\n')
-                else:
+                if self.command_service.edit_word(user, langs):
                     print('\nWord successfully edited!\n')
+                else:
+                    print('\nWord could not be edited, please try again.\n')
             else:
                 print(
                     f"I couldn't understand your command, please try again.\n({self.help_msg})\n")
@@ -151,28 +133,24 @@ class Interface:
     def play_setup(self, user):
         print(f'{self.line}\n     WORD GAME\n')
 
-        if not self.wordapp_service.get_languages(user):
-            print(f'You are yet to add any words!\n\n{self.line}')
+        langs = self.wordapp_service.get_languages(user)
+        play_language = self.command_service.language_access(langs)
+
+        if not play_language:
             return
-        print('')
-        while True:
-            lang = input(
-                'Please choose language you wish to practice: ').lower()
-            if lang == 'back':
-                print(self.line)
-                return
-            words = self.wordapp_service.read_list(user, lang)
-            if not words:
-                print("You do not have any words in that language. :(\n")
-                continue
-            break
-        result = self.playing_game(words, lang)
+
+        words = self.wordapp_service.read_list(user, play_language)
+        result = self.playing_game(words, play_language)
+
         if result == 0:
             print(
                 f'You got 0 words right... Better luck next time!\n{self.line}')
+        elif result == None:
+            print(f'Please come play again!\n{self.line}')
         else:
             print(
                 f'Congratulations! You got {result} out of {len(words)} words right!\n{self.line}')
+            self.wordapp_service.update_exp(user, result)
 
     def playing_game(self, words, lang):
         print(f'\n{self.line}\n~ Now playing in {lang.capitalize()}! ~\n(type "stop" if you wish to stop playing)\n')
@@ -186,7 +164,7 @@ class Interface:
                     correct += 1
                     break
                 elif answer == 'stop':
-                    print(self.line)
+                    result = None
                     return
                 elif counter == 3:
                     print(f'The word was "{w.translation}".\n')
@@ -198,3 +176,13 @@ class Interface:
                     hint = ' _'*(len(w.translation)-1)
                     print(f'     Hint: {w.translation[0]}{hint}\n')
         return correct
+
+    def user_profile(self, user):
+        print(f"{self.line}\n     {user.upper()}'s profile\n")
+        user_level = self.wordapp_service.get_level(user)
+        user_exp = self.wordapp_service.get_experience(user)
+
+        print(
+            f'Experience points: {user_exp}/{user_level[1]}')
+        print(f'Current level: {user_level[0]}')
+        print(f'\n{self.line}')
