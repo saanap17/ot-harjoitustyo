@@ -1,6 +1,6 @@
 # Sanastonharjoittaja, OHTE-harjoitustyö
 
-Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännöksineen ja terästää muistisolujaan pienen "muistipelin" muodossa. 
+Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännöksineen ja terästää muistisolujaan pienen "muistipelin" muodossa. Tämä ohjelma on tehty osamna Helsingin Yliopiston kurssia *Ohjelmistotekniikka*.
 
 ## Dokumentaatio
 
@@ -14,6 +14,7 @@ Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännök
 
 [Viikko 5](https://github.com/saanap17/ot-harjoitustyo/releases/tag/viikko5)  
 [Viikko 6](https://github.com/saanap17/ot-harjoitustyo/releases/tag/viikko6)  
+[Loppupalautus](https://github.com/saanap17/ot-harjoitustyo/releases/tag/loppupalautus)  
 
 ## Asennus
 

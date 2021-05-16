@@ -21,7 +21,7 @@ class Commands:
 
         while True:
             lang = input(
-                'Which language list would you like to access (no.)? ').lower()       
+                'Which language list would you like to access (no.)? ').lower()
             try:
                 if int(lang) > len(langs):
                     print('Please type a number from the list.')
@@ -32,9 +32,10 @@ class Commands:
             return langs[int(lang)]
 
     def add_word(self, user, langs):
-        answer = input('Would you like to create a new word list (Y/N)? ').lower()
+        answer = input(
+            'Would you like to create a new word list (Y/N)? ').lower()
         print('')
-        
+
         if answer == 'y' or answer == 'yes':
             language = input('     New language: ').lower()
         else:
