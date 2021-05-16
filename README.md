@@ -8,6 +8,7 @@ Ohjelman avulla kieltenopiskelijat voivat luoda itselleen sanalistoja käännök
 - [Vaatimusmäärittely](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
 - [Arkkitehtuuri](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)  
 - [Käyttöohje](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)  
+- [Testausdokumentti](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/testausdokumentti.md)
 
 ## Releaset
 
@@ -29,7 +30,7 @@ Ohjelman saa suoritettua komennolla:
 
 	poetry run invoke start
 	
-Toistaiseksi tuntemattomasta syystä ylläoleva komento kuitenkin näytti sotkevan jonkin verran ohjelman suoritusta käyttäjän antaessa syötteitä, joten painathan vaikka nuolinäppäimiä etkä esim. enteriä jos ohjelma tulostaa ylimääräisiä rivejä eikä suoritus jatku. Allaolevalla komennolla ohjelma toimi itselläni tosin moitteettomasti:
+Toistaiseksi tuntemattomasta syystä ylläoleva komento kuitenkin näytti sotkevan jonkin verran ohjelman suoritusta käyttäjän antaessa syötteitä, joten painathan vaikka nuolinäppäimiä etkä esim. enteriä jos ohjelma tulostaa ylimääräisiä rivejä eikä suoritus jatku. Allaolevalla komennolla ohjelma toimi itselläni tosin moitteettomasti, joten käytäthän tätä jos/kun kohtaat ongelmia:
 
 	poetry run python src/index.py
 	

@@ -1,0 +1,31 @@
+# Arkkitehtuurikuvaus
+
+## Rakenne
+
+## Käyttöliittymä
+
+Ohjelmassa on tekstikäyttöliittymä, jossa on erilaisia "näkymiä" ja "alinäkymiä". Koska graafista käyttöliittymää ei (ainakaan toistaiseksi) ole käytettävissä, tulee käyttäjän navigoida näkymästä toiseen syöttämällä erilaisia tekstikomentoja.
+
+- Aloitusruutu
+	- Sisäänkirjautuminen
+	- Uuden käyttäjän luominen
+- Käyttäjänäkymä
+	- Sanalistan päivittäminen
+		- Lisää sana
+		- Poista sana
+	- Pelaa sanapeliä
+- Sanapelin pelaaminen
+
+## Tietojen pysyväistallennus
+
+Käyttäjien tiedot (käyttäjänimi ja salasana) tallennetaan SQLite-tietokantaan käyttäjän luomisen yhteydessä.
+
+# Päätoiminnallisuudet
+
+## Käyttäjän luominen
+
+## Sisäänkirjautuminen
+
+## Sanalistan luominen
+
+## Sanapelin pelaaminen

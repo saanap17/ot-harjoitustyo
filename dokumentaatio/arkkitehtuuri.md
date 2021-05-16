@@ -1,16 +1,14 @@
 # Arkkitehtuurikuvaus
 
-[Alustava]
-
 ## Käyttöliittymä
 
-Sovelluksessa on toistaiseksi vain tekstikäyttöliittymä.
+Sovelluksessa on tekstikäyttöliittymä, jossa navigoiminen näkymästä toiseen tapahtuu käyttäjän antamilla syötteillä.
 
 ## Rakenne
 
-[Kuva tulossa.]  
+![](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/structure.png) 
 
-Sovellus on rakennettu kolmitasoisen kerrosarkkitehtuurin mukaisesti, eli se on jaoteltu kolmeen luokkaan: *entities*, *repositories* ja *services*. Pakkaus *entities* vastaa sovelluksessa käytettävien olioiden rakenteesta, pakkauksen *repositories* luokat vastaavat tietorakenteiden ylläpidosta ja hauista, kun taas *services* toimii repositorioiden ja käyttöliittymän välissä. Käyttöliittymän toiminta on näistä erillinen. 
+Sovellus on rakennettu kolmitasoisen kerrosarkkitehtuurin mukaisesti, eli sovelluslogiikka on jaoteltu kolmeen luokkaan: *entities*, *repositories* ja *services*. Pakkaus *entities* vastaa sovelluksessa käytettävien olioiden rakenteesta, pakkauksen *repositories* luokat vastaavat tietorakenteiden ylläpidosta ja hauista, kun taas *services* toimii repositorioiden ja käyttöliittymän välissä. Käyttöliittymän (*ui*) toiminta on näistä erillinen. 
 
 ## Sovelluslogiikka
 
@@ -18,18 +16,38 @@ Sovelluksessa on käyttöliittymä [Interface](https://github.com/saanap17/ot-ha
 
 ![](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/package.png)  
 
-(Kuva pitää päivittää) 'Entities' sisältää oliot *Word* ja *User*, jotka kuvaavat yksittäistä sanaa (käännöksineen) sekä käyttäjää. Kansiossa 'repositories' on kaikki todellinen sovelluslogiikka. *Users* vastaa käyttäjätietokannan ylläpidosta (käyttäjien poisto, lisääminen yms.), ja *Wordlist* vastaavasti huolehtii sanojen ylläpidosta, sanalistojen hakemisesta tiedostosta ynnä muusta. Käyttöliittymän ja repositorien välillä on luokka *WordAppService*, joka toimii välikätenä eri toimintojen suorituksessa. Käyttöliittymä on myös jaettu kahteen osaan, *Interface* ja *Commands*, joista *Commands* vastaa laajaosaisten komentojen suorituksesta ja kommunikoi palveluluokan kanssa.
+'Entities' sisältää oliot *Word* ja *User*, jotka kuvaavat yksittäistä sanaa (käännöksineen) sekä käyttäjää. Kansiossa 'repositories' on kaikki todellinen sovelluslogiikka. *Users* vastaa käyttäjätietokannan ylläpidosta (käyttäjien poisto, lisääminen yms.), ja *Wordlist* vastaavasti huolehtii sanojen ylläpidosta, sanalistojen hakemisesta tiedostosta ynnä muusta. Käyttöliittymän ja repositorien välillä on luokka *WordAppService*, joka toimii välikätenä eri toimintojen suorituksessa (esim. käyttäjän kokemuspisteiden nouto, olemassaolevien sanojen editointi). Käyttöliittymä on jaettu kahteen osaan, *Interface* ja *Commands*, joista *Commands* vastaa laajaosaisten komentojen suorituksesta ja kommunikoi myös palveluluokan kanssa.
 
 ## Tietojen pysyväistallennus
 
-Sovelluksen käyttäjät talletetaan SQL-tietokantaan taulukkoon *Users*, kun taas sanat säilytetään CSV-tekstitiedostossa muodossa "*käyttäjä,sana,käännös,kieli*". Aiemmin esitellyt luokat ovat vastuussa näiden tietokantojen ylläpidosta.
+Sovelluksen käyttäjät talletetaan SQL-tietokantaan taulukkoon *Users* muodossa *nimi|salasana|kokemuspisteet*, kun taas sanat säilytetään CSV-tekstitiedostossa muodossa "*käyttäjä,sana,käännös,kieli*". Aiemmin esitellyt luokat ovat vastuussa näiden tietokantojen ylläpidosta. Tietokanta ja tiedosto löytyvät oletuksena juurikansion *data*-kansiosta, mutta tämä on muutettavissa editoimalla *index.py*-tiedostoa.
 
 ## Päätoiminnallisuudet
+
+Ohjelmassa on muutamia päätoiminnallisuuksia:
+- Käyttäjäkohtaiset
+	- Käyttäjän luominen
+	- Sisäänkirjautuminen
+	- Käyttäjän poisto
+- Sanakohtaiset
+	- Sanan luominen
+	- Sanan poistaminen
+	- Sanan muokkaaminen
+- Sanapelin pelaaminen
+
+Alla kuvataan sekvenssikaavioiden avulla muutamaa näistä toiminnallisuuksista.
+
+### Käyttäjän luominen ja sisäänkirjautuminen
+
+![](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekv_add_user.png) 
+
+Käyttäjä antaa käyttöliittymässä haluamansa käyttäjänimen ja salasanan, jonka käyttöliittymä taas antaa `WordAppService`-palveluluokalle. Palveluluokka lähettää taas käyttäjäolion `Users`-repositoriolle, joka tarkistaa tietokannasta onko nimimerkkiä jo olemassa. Käyttöliittymälle palautetaan *True*, jos lisääminen onnistui. Käyttäjän kirjautuessa sisään `WordAppService` lähettää taas kutsun repositoriolle, joka tarkistaa tietokannasta onko vastaavalle käyttäjänimelle olemassa salasanaa, joka vastaa annettua. Jälleen palautetaan käyttöliittymälle *True*, mikäli kirjautuminen onnistuu.
 
 ### Sanapelin pelaaminen
 
 Sanapelin pelaaminen tapahtuu vastaavasti:  
 ![](https://github.com/saanap17/ot-harjoitustyo/blob/master/dokumentaatio/kuvat/sekv_play_game.png) 
+
 Käyttöliittymä pyytää palveluluokkaa tarjoamaan kaikki kielet, joilla pelaaja pystyy pelaamaan. `Wordlist` hakee csv-tiedostosta kaikki kyseisen käyttäjän sanat ja muodostaa listan kaikista käytössä olevista kielistä. `WordAppService` heittää käyttäjälle tiedon siitä, onko mitään kieliä olemassa vaiko ei. Käyttöliittymä ohjastaa käyttäjän luomaan itselleen sanoja, jos niitä ei ole. Käyttäjä syöttää haluamansa kielen listasta, ja palveluluokka noutaa kaikki sanat vastaavalla kielellä. Luokka antaa taas käyttäjälle virheilmoituksen, jos kielellä ei löydy mitään sanoja (esim. kirjoitusvirheen vuoksi). Kun kielellä löytyvät sanat on haettu, siirtyy käyttöliittymä *playing_game()*-näkymään, jossa itse pelaaminen sitten tapahtuu.
 
 

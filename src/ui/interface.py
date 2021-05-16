@@ -2,16 +2,16 @@ import getpass
 import sys
 import sqlite3
 from services.wordapp_service import WordAppService
-from commands import Commands
+from ui.commands import Commands
 
 
 class Interface:
-    def __init__(self, wordapp_service):
+    def __init__(self, wordapp_service, commands):
         self.wordapp_service = wordapp_service
         self.line = '-'*40 + '\n'
         self.help_msg = 'Type "help" to see all commands.'
         self.to_do = 'What would you like to do? '
-        self.command_service = Commands(wordapp_service)
+        self.command_service = commands
 
     def commands(self, code):
         str = ''

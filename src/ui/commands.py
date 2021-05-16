@@ -11,20 +11,17 @@ class Commands:
 
     def language_access(self, langs):
         if not langs:
-            print('You are yet to add any words!')
+            print('You are yet to add any words!\n')
             return False
 
         print('     Your languages:')
         for i in range(1, len(langs)+1):
             print(f'     ({i}) {langs[i].capitalize()}')
         print('')
-        print('Type "back" to return.')
 
         while True:
             lang = input(
-                'Which language list would you like to access (no.)? ').lower()
-            if lang == 'back':
-                return False
+                'Which language list would you like to access (no.)? ').lower()       
             try:
                 if int(lang) > len(langs):
                     print('Please type a number from the list.')
@@ -35,8 +32,16 @@ class Commands:
             return langs[int(lang)]
 
     def add_word(self, user, langs):
-        language = input('     Choose language: ').lower()
-        language = self.language_access(langs)
+        answer = input('Would you like to create a new word list (Y/N)? ').lower()
+        print('')
+        
+        if answer == 'y' or answer == 'yes':
+            language = input('     New language: ').lower()
+        else:
+            language = self.language_access(langs)
+            if not language:
+                language = input('     New language: ').lower()
+
         word = input('     Word: ').lower()
         translation = input('     Translation: ').lower()
         self.wordapp_service.add_word(user, word, translation, language)

@@ -4,7 +4,7 @@ Projektin uusimman julkaisun saat ladattua [tältä](https://github.com/saanap17
 
 ## Konfigurointi
 
-Mikäli missään vaiheessa haluat muokata ohjelman käyttämää dataa ohjelman ulkopuolella, löytyvät *data*-kansiosta käyttäjien tiedot SQLite-tietokannasta sekä sanalistojen sisällöt csv-tekstitiedostosta. Ohjelma luo nämä tiedostot automaattisesti käynnistyksen yhteydessä.
+Mikäli missään vaiheessa haluat muokata ohjelman käyttämää dataa ohjelman ulkopuolella, löytyvät *data*-kansiosta käyttäjien tiedot SQLite-tietokannasta sekä sanalistojen sisällöt csv-tekstitiedostosta. Ohjelma luo nämä tiedostot automaattisesti käynnistyksen yhteydessä. Tietorakenteiden nimiä ei valitettavasti voi muuttaa ohjelmasta käsin, mutta editoimalla *index.py*-tiedostoa voi tietorakenteiden nimiä ja osoitteita muuttaa vapaasti.
 
 ## Ohjelman käynnistäminen
 

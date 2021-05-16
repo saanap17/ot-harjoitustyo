@@ -24,4 +24,6 @@
 |4.5. | 2 | Käyttäjien profiilit ja kokemuspisteet lisätty |
 |     | 1 | Docstring-dokumentaatio suurimmilta osin tehty |
 |     | 3 | Käyttöliittymän stressiä ulkoistettu apuluokalle, siistitään myöhemmin |
-| yht      | 43        |            |  
+|16.5| 2 | Käyttöliittymälle luotu oma kansio ynnä muuta viime hetken refaktorointia |
+| | 2 | Dokumentaatioon päivitystä |
+| yht      | 47        |            |  

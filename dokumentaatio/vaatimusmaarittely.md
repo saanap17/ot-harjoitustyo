@@ -1,7 +1,5 @@
 # Vaatimusmäärittely
 
-[Alustava versio]
-
 ## Sovelluksen tarkoitus
 
 Sovelluksen on tarkoitus toimia yksinkertaisena välineenä kieltenopiskelijoille. Käyttäjät voivat kirjautua sisään omilla tunnuksillaan ja sovelluksessa tehdä itselleen sanalistoja ja harjoitella niiden parissa. 
@@ -24,10 +22,8 @@ Kun sovellus käynnistetään, annetaan käyttäjälle vaihtoehdoksi joko kirjau
 	- Käyttäjän sisäänkirjautuminen (Tehty)
 	- Käyttäjän poistaminen (Tehty)
 	- Käyttäjän profiilin tarkastelu (Tehty)
-
-Kun käyttäjä on kirjautunut sisään, tervehditään käyttäjää ja sovellus antaa listan vaihtoehdoista:
 - Sanalistojen hallinta
-	- Lisää sanoja vanhaan listaan (Tehty)
+	- Lisää sanoja vanhaan listaan tai luo uusi sanalista (Tehty)
 	- Poista sanoja vanhasta listasta (Tehty)
 	- Muokkaa sanaa vanhalla listalla (Tehty)
 - Harjoittelutila
@@ -50,4 +46,3 @@ Alla mahdollisia ideoita ja lisäyksiä, joita ohjelmaan voisi seuraavien viikko
 - Sanojen dynaaminen lisääminen nk. sanapankkiin
     - Ohjelma voi ehdottaa uusia sanoja listoille
     - Käyttäjä voi listan luomisen sijaan käyttää sanapankkia
-- Muuta, mitä?
